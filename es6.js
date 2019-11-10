@@ -465,3 +465,84 @@ class Card extends React.component {
         )
     }
 }
+
+
+class App extends React.Component{
+    constructor(){
+        super();
+        this.fetchTasks = this.fetchTasks.bind(this);
+        this.addMemo = this.addMemo.bind(this);
+        this.deleteMemo = this.deleteMemo.bind(this);
+        this.state = {
+            showInput: false,
+            black: true,
+            color: null,
+            task: []
+        };
+    }
+
+    componentDidMount(){
+        this.fetchTasks();
+    }
+
+    async fetchTasks(){
+        await fetch("url/tasks", {
+            method: "POST",
+            header: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+
+            })
+        })
+    }
+}
+
+
+
+//ページの初期化に即時関数
+(function() {
+    const label = document.getElementById('data_label');
+    now = new Date();
+    label.innerText = now;
+}());
+
+const device = (() => {
+    const ua = navigator.userAgent;
+    if((ua.indexOf('iPhone') > 0 && ua.indexOf('iPad') == -1) || ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0){
+        return 'sp';
+    }else {
+        return 'pc';
+    }
+});
+
+
+
+//ショッピングカートを表現するクラス
+class ShoppingCart {
+    constructor(){
+        this.items = new Map();
+    }
+    // カートに商品を追加する処理　
+    addItems(item){
+        const count = this.items.get(item) || 0;
+        this.items.set(item, count + 1); //商品をカートに追加する
+    }　
+    //カート内の合計金額を返す
+    getTotalPrice(){
+        return Array.form(this.items).reduce((total, [item, count]) => {
+            return total + item.price * count; //
+        }, 0);
+    }
+    //カートの中身を文字列にして返す
+    toString(){
+        return Array.form(this.items).map(([item, count]) => {
+            return `${item.name}:${count}`;
+        }).join(",");
+    }
+}
+
+const shoppingCart = new ShoppingCart();
+
+
