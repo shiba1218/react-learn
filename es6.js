@@ -541,6 +541,12 @@ class ShoppingCart {
             return `${item.name}:${count}`;
         }).join(",");
     }
+
+    searchUserInfo(){
+        return Array.from(this.data).map((name, _id) => {
+            return `${Name}` + 'さん、こんにちは';
+        })
+    }
 }
 
 const shoppingCart = new ShoppingCart();
