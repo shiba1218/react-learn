@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import Layout from '../components/MyLayout';
+// import Layout from '../components/MyLayout';
 // import {Table, Button} from 'react-bootstrap';
 import {Button, Table, TableBody, TableCell, TableRow, Paper, TableHead, TextField, Input} from '@material-ui/core';
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -158,7 +158,7 @@ class Admin extends Component {
         })
     return (
         <div>
-            <Layout/>
+            {/* <Layout/> */}
             <form name="form">
                 <div className="userInfoList">
                     <p>ユーザー情報 一覧</p>
@@ -183,46 +183,64 @@ class Admin extends Component {
                     </Paper>
                 </div>
                 <Paper className="postForm">
-                    <Table>
-                        <TableRow>
-                            <TableCell>Name:</TableCell>
-                            <TableCell><Input id="standard-basic" label="Standard" margin="normal" name="name" value={this.state.name} placeholder=" name.."/></TableCell>
-                        </TableRow>
-                        <TableRow>Name:<Input id="standard-basic" label="Standard" margin="normal" name="name" value={this.state.name} placeholder=" name.."/>
-                    </TableRow>
+                    <div>
+                    <TextField
+                        id="outlined-basic"
+                        label="Outlined"
+                        margin="normal"
+                        variant="outlined"
+                    />
+                    </div>
                     <TableRow>board_width:
                         <input type="radio" name="board-width" value="3" /> 3
                         <input type="radio" name="board-width" value="5" /> 5
                         <input type="radio" name="board-width" value="7" /> 7
                         <input type="radio" name="board-width" value="9" /> 9
                     </TableRow>
-                    <div>
-                        <label>item_color: <Input id="standard-basic" label="Standard" margin="normal" name="item_color" value={this.state.item_color} placeholder="item-color..." />
-                    </label>
-                    </div>
-                    <div>
-                        <label>background_color: <Input id="standard-basic" label="Standard" margin="normal" value={this.state.background_color} placeholder="background_color..."/>
-                    </label>
-                    </div>
-                    </Table>
-                    <br/>
-                    <label>
-                        <input type="submit" name="ユーザー登録" value="ユーザー登録" onSubmit={this.handlePostSubmit}/>
-                    </label>
                 </Paper>
-                <br/>
-                <label>
-                    <input type="submit" name="ユーザー情報を更新"value="ユーザー情報を更新" onSubmit={this.handlePuttSubmit}/>
-                </label>
-                <br/>
-                <label>
-                    <input type="submit" name="ユーザー情報を削除" value="ユーザー情報を削除" onSubmit={this.handleDeleteSubmit}/>
-                </label>
+
+                <Paper>
+                    <div className="postForm">
+                    Name:<TextField id="standard-secondary" label="Name" color="secondary" />
+                    <TextField id="standard-secondary" label="item_color" color="secondary" />
+                    <TextField id="standard-secondary" label="board_color" color="secondary" />
+                    <TextField id="standard-secondary" label="my_shape" color="secondary" />
+                    <TextField id="standard-secondary" label="your_shape" color="secondary" />
+                    <label>board_width:
+                        <input type="radio" name="board-width" value="3" /> 3
+                        <input type="radio" name="board-width" value="5" /> 5
+                        <input type="radio" name="board-width" value="7" /> 7
+                        <input type="radio" name="board-width" value="9" /> 9
+                    </label>
+                    </div>
+                </Paper>
+
+                <Paper className="userForm">
+                    <h4>ユーザー登録エリア</h4>
+                    <div className="userForm">
+                        <div>
+                        <TextField id="standard-secondary" label="Name" color="secondary" />
+                        <TextField id="standard-secondary" label="item_color" color="secondary" />
+                        <TextField id="standard-secondary" label="board_color" color="secondary" />
+                        <TextField id="standard-secondary" label="my_shape" color="secondary" />
+                        <TextField id="standard-secondary" label="your_shape" color="secondary" />
+                        </div>
+                    </div>
+                </Paper>
             </form>
             <style jsx>
                 {`
                 .userInfoList{
                     margin: 15px 10px;
+                }
+                .UserNameform span{
+                    lie-height: 10px;
+                }
+                .userForm{
+                    text-align:center;
+                }
+                h4{
+                    text-align:center;
                 }
                 `}
             </style>

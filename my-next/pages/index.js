@@ -3,8 +3,6 @@ import Head from 'next/head';
 import Nav from '../components/nav';
 
 
-export default Home;
-
 const Home = () => (
   <div>
     <Head>
@@ -86,6 +84,6 @@ const Home = () => (
       }
     `}</style>
   </div>
-)
+);
 
-export default Home
+export default Home;
