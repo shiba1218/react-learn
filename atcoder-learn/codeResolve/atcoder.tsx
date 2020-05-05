@@ -189,7 +189,12 @@ App8(require('fs').readFileSync('/dev/stdin', 'utf8'));
 
 // -------------------------------------------------
 
+"use strict";
+const App9 = (arg: any) => {
+  const Input = arg.trim().split("\n");
+};
 
+App9(require("fs").readFileSync("/dev/stdin", "utf8"));
 
 // -------------------------------------------------
 
