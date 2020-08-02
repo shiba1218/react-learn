@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "mobx-react": "^6.2.2",
+    "typecript": "^0.0.1-security"
+  }
+}
